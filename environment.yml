@@ -1,0 +1,13 @@
+name: qb-qualities
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11.13  # Specify the exact Python version
+  - dash=2.11.0
+  - dash-bootstrap-components=1.4.1
+  - flask-caching=1.10.1
+  - nfl-data-py=1.3.0
+  - pandas=2.0.3
+  - plotly=5.15.0
+  - python-dotenv=1.0.0
+  - gunicorn  # Add Gunicorn for production
