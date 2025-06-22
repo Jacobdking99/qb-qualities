@@ -10,7 +10,7 @@ app.title = "Quarterback Qualities"
 cache.init_app(app.server)
 
 # Wrap layout in a loading spinner
-app.layout = dcc.Loading(children=make_layout(), type="circle")
+app.layout = make_layout()  # Remove global loading spinner for deployment
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=8080)  # Use host and port suitable for Render
