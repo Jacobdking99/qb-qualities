@@ -17,7 +17,7 @@ load_dotenv()
 
 # Get environment variables
 host = os.getenv("HOST", "0.0.0.0")  # Default to 0.0.0.0 if HOST is not set
-port = int(os.getenv("PORT", 8080))  # Default to 8080 if PORT is not set
+port = int(os.getenv("PORT", 8050))  # Default to 8050 if PORT is not set
 
 app = Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
 app.title = "Quarterback Qualities"
