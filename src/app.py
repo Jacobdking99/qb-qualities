@@ -1,9 +1,16 @@
 import os
+import sys
 from dotenv import load_dotenv
-from dash import Dash, dcc
-from components.layout import make_layout
+from dash import Dash
 import dash_bootstrap_components as dbc
-from cache import cache  # Import the centralized cache
+
+# Add the parent directory of src to the Python path
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+print(sys.path)  # Debugging: Print the Python path to verify
+
+from src.components.layout import make_layout  # Ensure correct import path
+from src.cache import cache  # Ensure correct import path
 
 # Load environment variables from .env file
 load_dotenv()
@@ -18,8 +25,8 @@ app.title = "Quarterback Qualities"
 # Initialize cache with the app server
 cache.init_app(app.server)
 
-# Wrap layout in a loading spinner
-app.layout = make_layout()  # Remove global loading spinner for deployment
+# Set the layout for the app
+app.layout = make_layout()
 
 if __name__ == "__main__":
     app.run(host=host, port=port)  # Use host and port from environment variables

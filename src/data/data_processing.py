@@ -1,6 +1,6 @@
 import pandas as pd
 import nfl_data_py as nfl
-from cache import cache  # Import the centralized cache
+from src.cache import cache  # Import the centralized cache
 
 @cache.memoize(timeout=3600)  # Cache the data for 1 hour
 def fetch_qb_pbp_data(season: int) -> pd.DataFrame:

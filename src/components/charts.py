@@ -1,7 +1,7 @@
 import pandas as pd
 from dash import dcc
 import plotly.graph_objects as go
-from data.data_processing import (
+from src.data.data_processing import (
     fetch_all_qb_pbp_epa, 
     fetch_adv_qb_pbp_stats,
     fetch_all_qb_season_totals,
