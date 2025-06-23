@@ -5,6 +5,7 @@ from dash import Dash
 import dash_bootstrap_components as dbc
 
 # Add the parent directory of src to the Python path
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 print(sys.path)  # Debugging: Print the Python path to verify
