@@ -1,8 +1,8 @@
 import pandas as pd
 import nfl_data_py as nfl
-from src.cache import cache  # Import the centralized cache
+from functools import lru_cache
 
-@cache.memoize(timeout=3600)  # Cache the data for 1 hour
+@lru_cache(maxsize=32)
 def fetch_qb_pbp_data(season: int) -> pd.DataFrame:
     """Fetches quarterback play-by-play data for a given NFL season.
 
@@ -180,7 +180,6 @@ def fetch_all_qb_season_totals(season: int) -> pd.DataFrame:
     """
     
     dropbacks_true_qbs = fetch_qb_pbp_data_cached(season)
-   
     qb_season_totals = (
         dropbacks_true_qbs.groupby(['season', 'passer_player_name'])
         .agg(
